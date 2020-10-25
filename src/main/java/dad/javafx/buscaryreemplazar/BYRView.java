@@ -20,10 +20,9 @@ public class BYRView extends GridPane {
 	TextField reemplazarText;
 	CheckBox checkBox1, checkBox2, checkBox3, checkBox4;
 	Button buscarButton, reemplazarButton, reemplazarTodoButton, cerrarButton, ayudaButton;
-	GridPane verde;
 	VBox naranja;
 	GridPane amarillo;
-	
+	GridPane verde;
 	public BYRView() {
 		super();
 
@@ -41,6 +40,8 @@ public class BYRView extends GridPane {
 		amarillo.add(checkBox2, 0, 1);
 		amarillo.add(checkBox3, 1, 0);
 		amarillo.add(checkBox4, 1, 1);
+		amarillo.setHgap(5);
+		amarillo.setVgap(5);
 		
 		verde = new GridPane();
 		verde.addRow(0, new Label("Buscar:"), buscarText);
@@ -54,44 +55,31 @@ public class BYRView extends GridPane {
 		cerrarButton = new Button("Cerrar");
 		ayudaButton = new Button("Ayuda");
 		
-		buscarButton.setMaxWidth(Double.MAX_VALUE);
-		reemplazarButton.setMaxWidth(Double.MAX_VALUE);
-		reemplazarTodoButton.setMaxWidth(Double.MAX_VALUE);
-		cerrarButton.setMaxWidth(Double.MAX_VALUE);
-		ayudaButton.setMaxWidth(Double.MAX_VALUE);
+		buscarButton.setMinWidth(120);
+		reemplazarButton.setMinWidth(120);
+		reemplazarTodoButton.setMinWidth(120);
+		cerrarButton.setMinWidth(120);
+		ayudaButton.setMinWidth(120);
 		
 		naranja = new VBox();
 		naranja.getChildren().addAll(buscarButton, reemplazarButton, reemplazarTodoButton, cerrarButton, ayudaButton);
-		naranja.setFillWidth(true);
 		naranja.setAlignment(Pos.CENTER);
-		naranja.setSpacing(3);
+		naranja.setSpacing(5);
 		
 		setPadding(new Insets(5));
 		setHgap(5);
 		setVgap(5);
-		setGridLinesVisible(true);
 		addRow(0, verde, naranja);
+		setAlignment(Pos.TOP_LEFT);
 		ColumnConstraints[] cols = { new ColumnConstraints(), new ColumnConstraints(), new ColumnConstraints(),
 	};
 
 		getColumnConstraints().setAll(cols);
-
-//		// restricciones columna 0
-//		cols[0].setHalignment(HPos.LEFT);
-//		cols[0].setHgrow(Priority.ALWAYS);
-//
-//		// restricciones columna 1
-		cols[1].setHgrow(Priority.NEVER);
-
-//		cols[1].setPrefWidth(value);
-//		cols[1].setFillWidth(true);
-//		cols[0].setHalignment(HPos.LEFT);
 		
+		cols[0].setHalignment(HPos.RIGHT);
 
-
-//		// restricciones columna 3
-//		cols[3].setHgrow(Priority.NEVER);
-
+		cols[1].setHgrow(Priority.NEVER);
+		cols[1].setFillWidth(true);
 
 	}
 }
