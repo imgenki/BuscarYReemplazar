@@ -46,6 +46,8 @@ public class BYRView extends GridPane {
 		verde = new GridPane();
 		verde.addRow(0, new Label("Buscar:"), buscarText);
 		verde.addRow(1, new Label("Reemplazar con:"), reemplazarText);
+		verde.setHgap(5);
+		verde.setVgap(5);
 		verde.add(amarillo, 1, 2);
 		
 		
